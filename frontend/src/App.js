@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 
 function App() {
-  const [serverTime, setServerTime] = useState(null);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:5001/")
       .then((res) => res.json())
-      .then((data) => setServerTime(data.time))
+      .then((data) => setUsers(data.data))
       .catch((err) => console.error("API error:", err));
   }, []);
 
@@ -14,8 +14,12 @@ function App() {
     <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
       <h1>React Frontend</h1>
       <p>
-        Server time:{" "}
-        {serverTime ? serverTime.now : "Loading... (check backend connection)"}
+        Users:
+        {users ? users.map(u => (
+          <p key={u.id}>
+            {u.name} - {u.email}
+          </p>
+        )) : "Loading... (check backend connection)"}
       </p>
     </div>
   );

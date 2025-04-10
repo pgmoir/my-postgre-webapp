@@ -13,8 +13,8 @@ const pool = new Pool({
 });
 
 app.get("/", async (req, res) => {
-  const result = await pool.query("SELECT NOW()");
-  res.json({ time: result.rows[0], message: 'Working' });
+  const result = await pool.query("SELECT * FROM users");
+  res.json({ data: result.rows, message: 'Working' });
 });
 
 app.listen(port, () => {
