@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function App() {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState();
 
   useEffect(() => {
     fetch("http://localhost:5001/")
@@ -13,14 +13,21 @@ function App() {
   return (
     <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
       <h1>React Frontend</h1>
-      <p>
-        Users:
-        {users ? users.map(u => (
-          <p key={u.id}>
-            {u.name} - {u.email}
-          </p>
-        )) : "Loading... (check backend connection)"}
-      </p>
+      <div>
+        Users:<br />
+        {users && 
+        <ul>
+          {
+            users.map(u => (
+              <li key={u.id}>
+                {u.name} - {u.email} - {u.address}
+              </li>
+            ))}
+        </ul>
+        }
+        {!users &&
+         "Loading... (check backend connection)"}
+      </div>
     </div>
   );
 }
