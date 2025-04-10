@@ -8,7 +8,7 @@ CREATE TABLE users (
   address VARCHAR(100)
 );
 
-INSERT INTO users (name, email) VALUES
+INSERT INTO users (name, email, address) VALUES
   ('Alice', 'alice@example.com', '1 Main Street'),
   ('Bobx', 'bob@example.com', '10 Long Way'),
   ('Phil', 'phil@example.com', '5 London Road');
