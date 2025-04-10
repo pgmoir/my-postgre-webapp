@@ -1,15 +1,15 @@
 {
-  "name": "Fullstack DevContainer",
-  "dockerComposeFile": "../docker-compose.yml",
-  "service": "devcontainer",
-  "workspaceFolder": "/workspace",
-  "settings": {
-    "terminal.integrated.defaultProfile.linux": "bash"
-  },
-  "extensions": [
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "ms-azuretools.vscode-docker"
-  ],
-  "postCreateCommand": "echo 'Dev container ready!'"
+	"name": "Fullstack DevContainer",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "devcontainer",
+	"workspaceFolder": "/workspace",
+	"settings": {
+		"terminal.integrated.defaultProfile.linux": "bash"
+	},
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"ms-azuretools.vscode-docker"
+	],
+	"postCreateCommand": "echo 'Dev container ready!'"
 }

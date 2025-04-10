@@ -2,18 +2,18 @@
 // `docker-compose exec backend node db-setup/seed.js`
 // to refresh the database
 
-const { Pool } = require("pg");
+const { Pool } = require('pg');
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+	connectionString: process.env.DATABASE_URL,
 });
 
 async function seed() {
-  await pool.query(`
+	await pool.query(`
     DROP TABLE IF EXISTS users
   `);
 
-  await pool.query(`
+	await pool.query(`
     CREATE TABLE IF NOT EXISTS users (
       id SERIAL PRIMARY KEY,
       name VARCHAR(100),
@@ -22,11 +22,11 @@ async function seed() {
     )
   `);
 
-  await pool.query(`
+	await pool.query(`
     DELETE FROM users
   `);
 
-  await pool.query(`
+	await pool.query(`
     INSERT INTO users (name, email, address) VALUES
     ('Alice', 'alice@example.com', '1 Main Street'),
     ('Bobx', 'bob@example.com', '10 Long Way'),
@@ -35,11 +35,11 @@ async function seed() {
     ON CONFLICT (email) DO NOTHING
   `);
 
-  console.log("Seed data inserted!");
-  process.exit();
+	console.log('Seed data inserted!');
+	process.exit();
 }
 
 seed().catch((err) => {
-  console.error(err);
-  process.exit(1);
+	console.error(err);
+	process.exit(1);
 });
