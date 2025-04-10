@@ -4,9 +4,11 @@
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name VARCHAR(100),
-  email VARCHAR(100) UNIQUE
+  email VARCHAR(100) UNIQUE,
+  address VARCHAR(100)
 );
 
 INSERT INTO users (name, email) VALUES
-  ('Alice', 'alice@example.com'),
-  ('Bob', 'bob@example.com');
+  ('Alice', 'alice@example.com', '1 Main Street'),
+  ('Bobx', 'bob@example.com', '10 Long Way'),
+  ('Phil', 'phil@example.com', '5 London Road');

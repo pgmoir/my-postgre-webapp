@@ -10,7 +10,7 @@ const pool = new Pool({
 
 async function seed() {
   await pool.query(`
-    DROP TABLE users
+    DROP TABLE IF EXISTS users
   `);
 
   await pool.query(`
@@ -30,7 +30,8 @@ async function seed() {
     INSERT INTO users (name, email, address) VALUES
     ('Alice', 'alice@example.com', '1 Main Street'),
     ('Bobx', 'bob@example.com', '10 Long Way'),
-    ('Phil', 'phil@example.com', '5 London Road')
+    ('Phil', 'philip@example.com', '50 London Road'),
+    ('Sue', 'sue@example.com', '50 London Road')
     ON CONFLICT (email) DO NOTHING
   `);
 

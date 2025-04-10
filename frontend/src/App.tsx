@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { User } from "./models/User";
 
 function App() {
-  const [users, setUsers] = useState();
+  const [users, setUsers] = useState<User[] | null>();
 
   useEffect(() => {
     fetch("http://localhost:5001/")
