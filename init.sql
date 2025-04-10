@@ -1,4 +1,5 @@
--- init.sql
+-- init.sql - was originally used in the docker-compose, but only runs once
+-- but has been superceded by the seed script so that it can be re-run
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
